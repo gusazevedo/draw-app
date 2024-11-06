@@ -1,9 +1,9 @@
 import 'dart:ui';
 
-import 'package:draw/blind_view.dart';
-import 'package:draw/stroke.dart';
-import 'package:draw/stroke_options.dart';
-import 'package:draw/stroke_painter.dart';
+import 'package:draw/screens/blind_view.dart';
+import 'package:draw/config/stroke.dart';
+import 'package:draw/config/stroke_options.dart';
+import 'package:draw/widgets/stroke_painter.dart';
 import 'package:flutter/material.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 
@@ -54,10 +54,41 @@ class _DrawViewState extends State<DrawView> {
     line.value = null;
   }
 
+  void navigatOnPress() {
+    Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => BlindView(lines: lines.value)));
+  }
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: false,
+        title: const Text('Área de desenho',
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800)),
+        backgroundColor: const Color(0xff8257E5),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.cleaning_services_outlined,
+              color: Colors.white,
+              size: 30,
+            ),
+            tooltip: 'Limpar desenho',
+          ),
+          IconButton(
+            onPressed: navigatOnPress,
+            icon: const Icon(
+              Icons.switch_access_shortcut_add_rounded,
+              color: Colors.white,
+              size: 30,
+            ),
+            tooltip: 'Submeter desenho',
+          ),
+        ],
+      ),
       body: Column(
         children: [
           Expanded(
@@ -100,13 +131,6 @@ class _DrawViewState extends State<DrawView> {
               ],
             ),
           )),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => BlindView(lines: lines.value)));
-            },
-            child: const Text('Show'),
-          )
         ],
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:perfect_freehand/perfect_freehand.dart';
 
 StrokeOptions options = StrokeOptions(
-  size: 32,
+  size: 15,
   thinning: 1,
   smoothing: 0.5,
   streamline: 0.5,

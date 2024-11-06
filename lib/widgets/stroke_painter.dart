@@ -1,4 +1,4 @@
-import 'package:draw/stroke.dart';
+import 'package:draw/config/stroke.dart';
 import 'package:flutter/material.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 

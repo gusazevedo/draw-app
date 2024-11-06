@@ -1,4 +1,4 @@
-package com.example.draw
+package com.blind_draw.app
 
 import io.flutter.embedding.android.FlutterActivity
 

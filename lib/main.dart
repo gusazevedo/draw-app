@@ -1,4 +1,4 @@
-import 'package:draw/draw_view.dart';
+import 'package:draw/screens/draw_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
